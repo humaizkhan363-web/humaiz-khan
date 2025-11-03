@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programs | Fitness Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+  }
+
+      /* Navbar hover and active effect */
+    .navbar-nav .nav-link {
+      margin: 0 10px;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .navbar-nav .nav-link::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      left: 0;
+      bottom: -4px;
+      background-color: #0d6efd;
+      transition: width 0.3s;
+    }
+
+    .navbar-nav .nav-link:hover::after,
+    .navbar-nav .nav-link.active::after {
+      width: 100%;
+    }
+  /* Program Cards */
+  .program-card {
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .program-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  .program-card img {
+    height: 260px; /* Pehle 220px tha, ab thoda bada */
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .program-card:hover img {
+    transform: scale(1.1);
+  }
+
+  .program-card .card-body {
+    text-align: center;
+    padding: 25px; /* Zyada spacing */
+  }
+
+  .program-card h5 {
+    font-weight: bold;
+    margin-bottom: 12px;
+  }
+
+  .program-card p {
+    min-height: 70px; /* Description ki height fix aur thodi badi */
+  }
+
+  /* Section Title */
+  .section-title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 12px;
+    font-size: 2rem; /* Title thoda bada */
+  }
+
+  .section-title::after {
+    content: "";
+    position: absolute;
+    width: 70%;
+    height: 3px;
+    background: #0d6efd;
+    left: 15%;
+    bottom: 0;
+    border-radius: 2px;
+    transition: width 0.4s;
+  }
+
+  .section-title:hover::after {
+    width: 100%;
+    left: 0;
+  }
+
+  /* Section Spacing */
+  section {
+    padding-top: 80px !important; /* Pehle kam tha */
+    padding-bottom: 80px !important;
+  }
+
+  /* Footer Spacing */
+  footer {
+    margin-top: 80px; /* Footer ke upar gap */
+  }
+</style>
+
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm sticky-top">
+    <div class="container">
+      <!-- Brand -->
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="Images/Front page/Logos/Main Logo.webp" alt="Fitness Home Logo" width="50" height="50"
+          class="me-2 rounded-circle">
+        <span class="fw-bold fs-4">Fitness Home</span>
+      </a>
+
+      <!-- Toggler -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="programs.html">Programs</a></li>
+          <li class="nav-item"><a class="nav-link" href="membership.html">Membership</a></li>
+          <li class="nav-item"><a class="nav-link" href="trainers.html">Trainers</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Active Link Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      let currentPage = window.location.pathname.split("/").pop();
+      let navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+
+      navLinks.forEach(link => {
+        let linkPage = link.getAttribute("href");
+        if (linkPage === currentPage) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
+
+  <!-- Programs Section -->
+  <section class="container py-5 reveal">
+    <h2 class="fw-bold text-center mb-4 section-title">Our Programs</h2>
+    <p class="text-center text-muted mb-5">Explore a wide range of fitness programs designed for all levels and goals</p>
+
+    <div class="row g-4">
+      <!-- Strength Training -->
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="card program-card shadow-sm h-100">
+          <img src="Images/programs/strength.jpg" class="card-img-top" alt="Strength Training">
+          <div class="card-body">
+            <h5>Strength Training</h5>
+            <p class="text-muted">Build muscle and improve endurance with our expert-guided sessions.</p>
+            <a href="membership.html" class="btn btn-outline-primary btn-sm">Join Now</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Yoga -->
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="card program-card shadow-sm h-100">
+          <img src="Images/programs/yoga.jpg" class="card-img-top" alt="Yoga & Flexibility">
+          <div class="card-body">
+            <h5>Yoga & Flexibility</h5>
+            <p class="text-muted">Increase flexibility, balance, and peace of mind with yoga classes.</p>
+            <a href="membership.html" class="btn btn-outline-primary btn-sm">Join Now</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Cardio & HIIT -->
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="card program-card shadow-sm h-100">
+          <img src="Images/programs/cardio.jpg" class="card-img-top" alt="Cardio & HIIT">
+          <div class="card-body">
+            <h5>Cardio & HIIT</h5>
+            <p class="text-muted">Burn calories and boost stamina with high-intensity workouts.</p>
+            <a href="membership.html" class="btn btn-outline-primary btn-sm">Join Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Personal Training -->
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="card program-card shadow-sm h-100">
+          <img src="Images/programs/personal.jpg" class="card-img-top" alt="Personal Training">
+          <div class="card-body">
+            <h5>Personal Training</h5>
+            <p class="text-muted">One-on-one sessions tailored to your fitness goals and lifestyle.</p>
+            <a href="membership.html" class="btn btn-outline-primary btn-sm">Join Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Back to Top -->
+  <button id="backToTop" class="btn btn-primary">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+  
+  
+  
+  <!-- Footer -->
+  <footer id="contact" class="text-center text-lg-start bg-dark text-light mt-5 pt-4">
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+      <div class="me-5 d-none d-lg-block">
+        <span>Follow us for fitness tips & updates:</span>
+      </div>
+      <div>
+        <a href="#" class="me-4 text-reset"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="me-4 text-reset"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="me-4 text-reset"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="me-4 text-reset"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="me-4 text-reset"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </section>
+
+    <section class="container mt-5">
+      <div class="row mt-3">
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <h6 class="fw-bold mb-4"><i class="fas fa-dumbbell me-2"></i>Fitness Home</h6>
+          <p>Your one-stop fitness destination. From strength training to yoga,
+            we help you build a healthier lifestyle.</p>
+        </div>
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <h6 class="fw-bold mb-4">Programs</h6>
+          <p><a href="#programs" class="text-reset">Strength Training</a></p>
+          <p><a href="#programs" class="text-reset">Yoga & Flexibility</a></p>
+          <p><a href="#programs" class="text-reset">Cardio & HIIT</a></p>
+          <p><a href="#programs" class="text-reset">Personal Training</a></p>
+        </div>
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <h6 class="fw-bold mb-4">Quick Links</h6>
+          <p><a href="membership.html" class="text-reset">Membership Plans</a></p>
+          <p><a href="trainers.html" class="text-reset">Trainers</a></p>
+          <p><a href="#!" class="text-reset">Schedule</a></p>
+          <p><a href="#contact" class="text-reset">Support</a></p>
+        </div>
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <h6 class="fw-bold mb-4">Contact</h6>
+          <p><i class="fas fa-home me-3"></i> 123 Fitness St, New York, NY</p>
+          <p><i class="fas fa-envelope me-3"></i> info@fitnesshome.com</p>
+          <p><i class="fas fa-phone me-3"></i> +1 555 234 5678</p>
+          <p><i class="fas fa-clock me-3"></i> Mon-Sun: 6am - 10pm</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="text-center p-4" style="background-color: rgba(255, 255, 255, 0.05);">
+      © 2025 Fitness Home | All Rights Reserved
+    </div>
+  </footer>
+
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 200) {
+          $("#backToTop").fadeIn();
+        } else {
+          $("#backToTop").fadeOut();
+        }
+      });
+      $("#backToTop").click(function () {
+        $("html, body").animate({ scrollTop: 0 }, 800);
+      });
+    });
+
+    // Scroll Reveal Animation
+    function reveal() {
+      var reveals = document.querySelectorAll(".reveal");
+      for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 100;
+
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
+        }
+      }
+    }
+    window.addEventListener("scroll", reveal);
+    reveal();
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+  <title>Fitness Home</title>
+  <link rel="Website icon" type="logo" href="Images/Front page/Logos/Main Logo.webp">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom CSS -->
+  <style>
+    /* Navbar hover and active effect */
+    .navbar-nav .nav-link {
+      margin: 0 10px;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .navbar-nav .nav-link::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      left: 0;
+      bottom: -4px;
+      background-color: #0d6efd;
+      transition: width 0.3s;
+    }
+
+    .navbar-nav .nav-link:hover::after,
+    .navbar-nav .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* Hero Carousel Captions */
+    .carousel-caption h5 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    }
+
+    .carousel-caption p {
+      font-size: 1.2rem;
+      font-weight: 400;
+      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Membership Cards */
+    .membership-card {
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-radius: 20px;
+    }
+
+    .membership-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Testimonials */
+    .rounded-circle {
+      border: 5px solid #0d6efd;
+      transition: transform 0.3s;
+    }
+
+    .rounded-circle:hover {
+      transform: scale(1.05);
+    }
+
+    /* Back to Top Button */
+    #backToTop {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 99;
+      border-radius: 50%;
+      padding: 12px 16px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    #backToTop:hover {
+      background-color: #0b5ed7;
+      transform: scale(1.1);
+    }
+
+    /* Section Titles */
+    .section-title {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 10px;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 60px;
+      height: 3px;
+      background: #0d6efd;
+      transform: translateX(-50%);
+    }
+
+    /* Scroll Animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+
+        /* Program Cards */
+    .program-card {
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .program-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .program-card img {
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .program-card .card-body {
+      text-align: center;
+    }
+
+    .program-card h5 {
+      font-weight: bold;
+    }
+
+    /* Section Title */
+    .section-title {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 10px;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      width: 70%;
+      height: 3px;
+      background: #0d6efd;
+      left: 15%;
+      bottom: 0;
+      border-radius: 2px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm sticky-top">
+    <div class="container">
+      <!-- Brand -->
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="Images/Front page/Logos/Main Logo.webp" alt="Fitness Home Logo" width="50" height="50"
+          class="me-2 rounded-circle">
+        <span class="fw-bold fs-4">Fitness Home</span>
+      </a>
+
+      <!-- Toggler -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="programs.html">Programs</a></li>
+          <li class="nav-item"><a class="nav-link" href="membership.html">Membership</a></li>
+          <li class="nav-item"><a class="nav-link" href="trainers.html">Trainers</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Active Link Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      let currentPage = window.location.pathname.split("/").pop();
+      let navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+
+      navLinks.forEach(link => {
+        let linkPage = link.getAttribute("href");
+        if (linkPage === currentPage) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
+
+  <!-- Hero Carousel -->
+  <div id="home"></div>
+  <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+        aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="Images/Front page/Carousel/Carousel  (1).jpg" class="d-block w-100" alt="Fitness Banner 1">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Welcome to Fitness Home</h5>
+          <p>Your journey to a healthier lifestyle starts here.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="Images/Front page/Carousel/Carousel  (2).jpg" class="d-block w-100" alt="Fitness Banner 2">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Build Strength & Confidence</h5>
+          <p>Join our expert trainers and programs tailored for you.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="Images/Front page/Carousel/Carousel  (3).jpg" class="d-block w-100" alt="Fitness Banner 3">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Transform Your Body</h5>
+          <p>Discover workouts, nutrition, and motivation that work.</p>
+        </div>
+      </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <hr>
+
+  <!-- Programs Section -->
+  <section id="programs" class="container py-5 reveal">
+    <h2 class="fw-bold text-center mb-4 section-title">Our Programs</h2>
+    <p class="text-center">We offer strength training, yoga, cardio, HIIT and much more to transform your lifestyle.</p>
+    <div class="row g-4">
+      <!-- Strength Training -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card program-card shadow-sm h-100">
+          <img src="Images/programs/strength.jpg" class="card-img-top" alt="Strength Training">
+          <div class="card-body">
+            <h5>Strength Training</h5>
+            <p class="text-muted">Build muscle and improve endurance with our expert-guided sessions.</p>
+            <a href="membership.html" class="btn btn-outline-primary btn-sm">Join Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Yoga -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card program-card shadow-sm h-100">
+          <img src="Images/programs/yoga.jpg" class="card-img-top" alt="Yoga & Flexibility">
+          <div class="card-body">
+            <h5>Yoga & Flexibility</h5>
+            <p class="text-muted">Increase flexibility, balance, and peace of mind with yoga classes.</p>
+            <a href="membership.html" class="btn btn-outline-primary btn-sm">Join Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cardio & HIIT -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card program-card shadow-sm h-100">
+          <img src="Images/programs/cardio.jpg" class="card-img-top" alt="Cardio & HIIT">
+          <div class="card-body">
+            <h5>Cardio & HIIT</h5>
+            <p class="text-muted">Burn calories and boost stamina with high-intensity workouts.</p>
+            <a href="membership.html" class="btn btn-outline-primary btn-sm">Join Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Personal Training -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card program-card shadow-sm h-100">
+          <img src="Images/programs/personal.jpg" class="card-img-top" alt="Personal Training">
+          <div class="card-body">
+            <h5>Personal Training</h5>
+            <p class="text-muted">One-on-one sessions tailored to your fitness goals and lifestyle.</p>
+            <a href="membership.html" class="btn btn-outline-primary btn-sm">Join Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    
+  </section>
+
+  <!-- Membership Section -->
+  <section id="membership" class="container py-5 reveal">
+    <h2 class="fw-bold text-center mb-4 section-title">Membership Plans</h2>
+    <p class="text-center mb-5 text-muted">Choose the perfect plan for your fitness journey</p>
+
+    <div class="row g-5">
+      <div class="col-md-4">
+        <div class="card membership-card shadow-lg border-0 h-100 text-center">
+          <div class="card-body">
+            <h5 class="fw-bold">Basic</h5>
+            <p class="text-muted">Ideal for beginners</p>
+            <h3 class="fw-bold">$29 <small class="text-muted">/month</small></h3>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>✔ Access to Gym</li>
+              <li>✔ Free Wi-Fi</li>
+              <li>✘ Group Classes</li>
+              <li>✘ Personal Trainer</li>
+            </ul>
+            <a href="membership.html" class="btn btn-outline-primary w-100 rounded-pill">Choose Plan</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card membership-card shadow-lg border-primary h-100 text-center">
+          <div class="card-body">
+            <h5 class="fw-bold text-primary">Standard</h5>
+            <p class="text-muted">Most Popular</p>
+            <h3 class="fw-bold">$49 <small class="text-muted">/month</small></h3>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>✔ Access to Gym</li>
+              <li>✔ Free Wi-Fi</li>
+              <li>✔ Group Classes</li>
+              <li>✘ Personal Trainer</li>
+            </ul>
+            <a href="membership.html" class="btn btn-primary w-100 rounded-pill">Choose Plan</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card membership-card shadow-lg border-0 h-100 text-center">
+          <div class="card-body">
+            <h5 class="fw-bold">Premium</h5>
+            <p class="text-muted">For serious fitness goals</p>
+            <h3 class="fw-bold">$79 <small class="text-muted">/month</small></h3>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>✔ Access to Gym</li>
+              <li>✔ Free Wi-Fi</li>
+              <li>✔ Group Classes</li>
+              <li>✔ Personal Trainer</li>
+            </ul>
+            <a href="membership.html" class="btn btn-outline-primary w-100 rounded-pill">Choose Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trainers Section -->
+  <section id="trainers" class="container py-5 reveal">
+    <h2 class="fw-bold text-center mb-4 section-title">Meet Our Trainers</h2>
+    <p class="text-center">Our expert trainers guide and motivate you to achieve your goals.</p>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-5 reveal">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-10 col-xl-8 text-center">
+        <h3 class="mb-4 fw-bold">What Our Members Say</h3>
+        <p class="mb-4 pb-2 mb-md-5 pb-md-0">
+          Thousands of people have transformed their bodies and lifestyles with <b>Fitness Home</b>.
+          Hear from our community about their journey to strength, confidence, and health.
+        </p>
+      </div>
+    </div>
+
+    <div class="row text-center">
+      <div class="col-md-4 mb-5 mb-md-0">
+        <div class="d-flex justify-content-center mb-4">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp" class="rounded-circle shadow-1-strong"
+            width="150" height="150" />
+        </div>
+        <h5 class="mb-3">Maria Smantha</h5>
+        <h6 class="text-primary mb-3">Fitness Enthusiast</h6>
+        <p class="px-xl-3">
+          <i class="fas fa-quote-left pe-2"></i>
+          “Joining Fitness Home was the best decision of my life! I’ve lost 12kg, gained strength, and feel more
+          confident than ever.”
+        </p>
+      </div>
+
+      <div class="col-md-4 mb-5 mb-md-0">
+        <div class="d-flex justify-content-center mb-4">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(2).webp" class="rounded-circle shadow-1-strong"
+            width="150" height="150" />
+        </div>
+        <h5 class="mb-3">Lisa Cudrow</h5>
+        <h6 class="text-primary mb-3">Yoga Lover</h6>
+        <p class="px-xl-3">
+          <i class="fas fa-quote-left pe-2"></i>
+          “The trainers here are so motivating and supportive. The yoga and strength classes helped me improve
+          flexibility and reduce stress.”
+        </p>
+      </div>
+
+      <div class="col-md-4 mb-0">
+        <div class="d-flex justify-content-center mb-4">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp" class="rounded-circle shadow-1-strong"
+            width="150" height="150" />
+        </div>
+        <h5 class="mb-3">John Smith</h5>
+        <h6 class="text-primary mb-3">Corporate Professional</h6>
+        <p class="px-xl-3">
+          <i class="fas fa-quote-left pe-2"></i>
+          “With my busy work schedule, the flexible timings at Fitness Home helped me stay consistent. I feel healthier,
+          stronger, and more energetic at work.”
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact" class="text-center text-lg-start bg-dark text-light mt-5 pt-4">
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+      <div class="me-5 d-none d-lg-block">
+        <span>Follow us for fitness tips & updates:</span>
+      </div>
+      <div>
+        <a href="#" class="me-4 text-reset"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="me-4 text-reset"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="me-4 text-reset"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="me-4 text-reset"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="me-4 text-reset"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </section>
+
+    <section class="container mt-5">
+      <div class="row mt-3">
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <h6 class="fw-bold mb-4"><i class="fas fa-dumbbell me-2"></i>Fitness Home</h6>
+          <p>Your one-stop fitness destination. From strength training to yoga,
+            we help you build a healthier lifestyle.</p>
+        </div>
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <h6 class="fw-bold mb-4">Programs</h6>
+          <p><a href="#programs" class="text-reset">Strength Training</a></p>
+          <p><a href="#programs" class="text-reset">Yoga & Flexibility</a></p>
+          <p><a href="#programs" class="text-reset">Cardio & HIIT</a></p>
+          <p><a href="#programs" class="text-reset">Personal Training</a></p>
+        </div>
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <h6 class="fw-bold mb-4">Quick Links</h6>
+          <p><a href="#membership" class="text-reset">Membership Plans</a></p>
+          <p><a href="#trainers" class="text-reset">Trainers</a></p>
+          <p><a href="#!" class="text-reset">Schedule</a></p>
+          <p><a href="#contact" class="text-reset">Support</a></p>
+        </div>
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <h6 class="fw-bold mb-4">Contact</h6>
+          <p><i class="fas fa-home me-3"></i> 123 Fitness St, New York, NY</p>
+          <p><i class="fas fa-envelope me-3"></i> info@fitnesshome.com</p>
+          <p><i class="fas fa-phone me-3"></i> +1 555 234 5678</p>
+          <p><i class="fas fa-clock me-3"></i> Mon-Sun: 6am - 10pm</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="text-center p-4" style="background-color: rgba(255, 255, 255, 0.05);">
+      © 2025 Fitness Home | All Rights Reserved
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button id="backToTop" class="btn btn-primary">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 200) {
+          $("#backToTop").fadeIn();
+        } else {
+          $("#backToTop").fadeOut();
+        }
+      });
+      $("#backToTop").click(function () {
+        $("html, body").animate({ scrollTop: 0 }, 800);
+      });
+    });
+
+    // Scroll Reveal Animation
+    function reveal() {
+      var reveals = document.querySelectorAll(".reveal");
+      for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 100;
+
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
+        }
+      }
+    }
+    window.addEventListener("scroll", reveal);
+    reveal();
+  </script>
+
+</body>
+
+</html>
